@@ -1,35 +1,35 @@
 import { useCallback, useEffect, useState } from 'react';
 
 function useAuthForm() {
-  const [id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
   const [error, setError] = useState({ id: null, password: null });
   const PASSWORD_REGEX = /\w{8,}/;
-  const ID_REGEX = /@/;
+  const EMAIL_REGEX = /@/;
 
   const idValidate = useCallback(
     e => {
-      if (id === '') {
+      if (email === '') {
         return setError(prev => {
-          const result = { ...prev, id: '아이디를 입력해주세요' };
+          const result = { ...prev, email: '아이디를 입력해주세요' };
           return result;
         });
       }
 
-      if (ID_REGEX.test(id)) {
+      if (EMAIL_REGEX.test(email)) {
         return setError(prev => {
-          const result = { ...prev, id: true };
+          const result = { ...prev, email: true };
           return result;
         });
       }
 
       setError(prev => {
-        const result = { ...prev, id: '@를 포함해주세요' };
+        const result = { ...prev, email: '@를 포함해주세요' };
         return result;
       });
     },
-    [id]
+    [email]
   );
 
   const passwordValidate = useCallback(
@@ -53,24 +53,25 @@ function useAuthForm() {
   );
 
   const handleSubmit = useCallback(
-    async fn => {
-      fn({ id, password });
+    async (e, fn) => {
+      e.preventDefault();
+      fn({ email, password });
     },
-    [id, password]
+    [email, password]
   );
 
   useEffect(() => {
     idValidate();
     setIsCorrect(() => {
-      if (ID_REGEX.test(id) && PASSWORD_REGEX.test(password)) return false;
+      if (EMAIL_REGEX.test(email) && PASSWORD_REGEX.test(password)) return false;
       return true;
     });
-  }, [id]);
+  }, [email]);
 
   useEffect(() => {
     passwordValidate();
     setIsCorrect(() => {
-      if (ID_REGEX.test(id) && PASSWORD_REGEX.test(password)) return false;
+      if (EMAIL_REGEX.test(email) && PASSWORD_REGEX.test(password)) return false;
       return true;
     });
   }, [password]);
@@ -82,7 +83,7 @@ function useAuthForm() {
     });
   }, []);
 
-  return { setId, setPassword, isCorrect, error, handleSubmit };
+  return { setEmail, setPassword, isCorrect, error, handleSubmit };
 }
 
 export default useAuthForm;

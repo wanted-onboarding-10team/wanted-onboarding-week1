@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInApi, signUpApi } from '../../api/auth';
 import useAuthForm from '../../utils/hooks/useAuthForm';
-import LargeButton from './LargeButton';
+import * as S from '../../styles/authStyle';
+import { AuthContext } from '../../utils/auth/AuthContext';
 
 const AuthForm = ({ mode }) => {
-  const { setId, setPassword, isCorrect, error, handleSubmit } = useAuthForm();
+  const { login } = useContext(AuthContext);
+  const { setEmail, setPassword, isCorrect, error, handleSubmit } = useAuthForm();
   const navigate = useNavigate();
 
-  const onValid = async ({ id, password }) => {
+  const onValid = async ({ email, password }) => {
     try {
       if (mode === 'login') {
-        // const result = await loginUserApi(id, password);
-        // localStorage.setItem('jwtToken', result.access_token);
+        const { data } = await signInApi({ email, password });
+        login(data.access_token);
         navigate('/todo');
-        return;
+      } else {
+        await signUpApi({ email, password });
+        navigate('/signin');
       }
-
-      // await registerUserApi(id, password);
-      navigate('/signin');
     } catch (error) {
       if (error.status === 401) {
         return alert('비밀번호를 확인해주세요');
@@ -27,35 +29,37 @@ const AuthForm = ({ mode }) => {
   };
 
   return (
-    <form onSubmit={() => handleSubmit(onValid)}>
-      <input type="text" onChange={e => setId(e.target.value)} data-testid="email-input"></input>
-      <p>{error.id}</p>
-      <input
+    <S.AuthFormBlock onSubmit={e => handleSubmit(e, onValid)}>
+      <h3> {mode === 'login' ? '로그인' : '회원가입'}</h3>
+
+      <S.StyledInput
+        type="text"
+        onChange={e => setEmail(e.target.value)}
+        data-testid="email-input"
+        placeholder="이메일"
+      />
+      <S.WarnMessage>{error.id}</S.WarnMessage>
+      <S.StyledInput
         type="password"
         onChange={e => setPassword(e.target.value)}
         data-testid="password-input"
-      ></input>
-      <p>{error.password}</p>
-      <button type="submit">제출</button>
+        placeholder="비밀번호"
+      />
+      <S.WarnMessage>{error.password}</S.WarnMessage>
+
       {mode === 'login' ? (
-        <LargeButton
-          color={mode === 'login' ? 'rgb(166, 141, 202)' : 'rgb(192, 222, 255)'}
-          disabled={isCorrect}
-          data-testid="signin-button"
-        >
+        <S.StyledButton type="submit" fullWidth disabled={isCorrect} data-testid="signin-button">
           로그인
-        </LargeButton>
+        </S.StyledButton>
       ) : (
-        <LargeButton
-          color={mode === 'login' ? 'rgb(166, 141, 202)' : 'rgb(192, 222, 255)'}
-          disabled={isCorrect}
-          data-testid="signin-button"
-          mode={mode}
-        >
+        <S.StyledButton type="submit" fullWidth disabled={isCorrect} data-testid="signup-button">
           회원가입
-        </LargeButton>
+        </S.StyledButton>
       )}
-    </form>
+      <S.Footer>
+        {mode === 'login' ? <a href="/signup">회원가입</a> : <a href="/signin">로그인</a>}
+      </S.Footer>
+    </S.AuthFormBlock>
   );
 };
 

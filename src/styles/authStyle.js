@@ -1,8 +1,8 @@
-import Button from '../../components/common/Button';
-import palette from '../../lib/styles/palette';
+import Button from '../components/common/Button';
+import palette from './palette';
 import styled from 'styled-components';
 
-export const AuthFormBlock = styled.div`
+export const AuthFormBlock = styled.form`
   h3 {
     margin: 0;
     color: ${palette.gray[8]};
@@ -15,6 +15,7 @@ export const AuthFormBlock = styled.div`
   div {
     margin-top: 0.7rem;
   }
+
   p {
     font-size: 0.85rem;
     line-height: 1.1rem;
@@ -57,6 +58,7 @@ export const StyledButton = styled(Button)`
     background: #ccc;
   }
 `;
+
 export const WarnMessage = styled.span`
   display: inline-block;
   margin-top: 0.25rem;
