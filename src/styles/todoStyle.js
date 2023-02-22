@@ -1,6 +1,6 @@
 import palette from './palette';
 import styled from 'styled-components';
-import { Button } from '../components';
+import Button from '../components/common/Button';
 
 export const TodoCreateBoxBlock = styled.div`
   width: 100%;

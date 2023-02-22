@@ -1,4 +1,4 @@
-import { AuthForm } from '../components';
+import AuthForm from '../components/auth/AuthForm';
 
 function SignInPage() {
   return <AuthForm mode="login" />;
