@@ -1,4 +1,4 @@
-import Button from '../components/common/Button';
+import { Button } from '../components';
 import palette from './palette';
 import styled from 'styled-components';
 

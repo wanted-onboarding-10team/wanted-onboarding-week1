@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import BasicTemplate from './components/common/BasicTemplate';
+import { BasicTemplate } from './components';
 
 function App() {
   return (
