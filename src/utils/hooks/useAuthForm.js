@@ -4,7 +4,7 @@ function useAuthForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
-  const [error, setError] = useState({ id: null, password: null });
+  const [error, setError] = useState({ email: null, password: null });
   const PASSWORD_REGEX = /\w{8,}/;
   const EMAIL_REGEX = /@/;
 

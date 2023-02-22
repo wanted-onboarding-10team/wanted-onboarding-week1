@@ -38,7 +38,7 @@ const AuthForm = ({ mode }) => {
         data-testid="email-input"
         placeholder="이메일"
       />
-      <S.WarnMessage>{error.id}</S.WarnMessage>
+      <S.WarnMessage>{error.email}</S.WarnMessage>
       <S.StyledInput
         type="password"
         onChange={e => setPassword(e.target.value)}
