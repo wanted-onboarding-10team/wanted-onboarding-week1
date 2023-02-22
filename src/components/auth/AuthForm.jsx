@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUserApi, registerUserApi } from '../../api/auth';
 import useAuthForm from '../../utils/hooks/useAuthForm';
-import LargeButton from '../buttons/LargeButton';
+import LargeButton from './LargeButton';
 
 const AuthForm = ({ mode }) => {
   const { setId, setPassword, isCorrect, error, handleSubmit } = useAuthForm();
@@ -11,13 +10,13 @@ const AuthForm = ({ mode }) => {
   const onValid = async ({ id, password }) => {
     try {
       if (mode === 'login') {
-        const result = await loginUserApi(id, password);
-        localStorage.setItem('jwtToken', result.access_token);
+        // const result = await loginUserApi(id, password);
+        // localStorage.setItem('jwtToken', result.access_token);
         navigate('/todo');
         return;
       }
 
-      await registerUserApi(id, password);
+      // await registerUserApi(id, password);
       navigate('/signin');
     } catch (error) {
       if (error.status === 401) {

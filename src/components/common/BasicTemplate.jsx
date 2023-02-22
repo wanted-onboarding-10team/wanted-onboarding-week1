@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import palette from '../../lib/styles/palette';
+import palette from '../../styles/palette';
 
 /* 화면 중앙 전체 채우기 */
 const BasicTemplateBlock = styled.div`
