@@ -21,6 +21,7 @@ const BasicTemplateBlock = styled.div`
 
 /* 흰색 박스 */
 const WhiteBox = styled.div`
+  width: 500px;
   .logo-area {
     display: block;
     padding-bottom: 2rem;
@@ -30,21 +31,14 @@ const WhiteBox = styled.div`
   }
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.02);
   padding: 2rem;
-  width: ${props => (props.whatIsType === 'TO-DO' ? `500px` : `360px`)};
   background: white;
   border-radius: 2px;
 `;
 
-/**
- * 기본 레이아웃 컴포넌트입니다.
- * @props `whatIsType` : todo의 박스 크기를 조절합니다.
- */
-function BasicTemplate({ children, whatIsType }) {
+function BasicTemplate({ children }) {
   return (
     <BasicTemplateBlock>
-      <WhiteBox className="wite-box" whatIsType={whatIsType}>
-        {children}
-      </WhiteBox>
+      <WhiteBox>{children}</WhiteBox>
     </BasicTemplateBlock>
   );
 }
