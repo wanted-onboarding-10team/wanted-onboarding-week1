@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { deleteTodoApi, getTodosApi, updateTodoApi } from '../../api/todo';
+import { deleteTodoApi, updateTodoApi } from '../../api/todo';
 import * as S from '../../styles/todoStyle';
-import useGetApi from '../../utils/hooks/useGetApi';
 
 const TodoContent = ({ data }) => {
-  const { refetch } = useGetApi(getTodosApi);
   const { todo, id, isCompleted } = data;
 
   const [isWrite, setIsWrite] = useState(false);
@@ -23,7 +21,6 @@ const TodoContent = ({ data }) => {
     if (isWrite) {
       if (editContent === '') return alert('할 일을 작성해주세요');
       await updateTodoApi(id, editContent, checked);
-      await refetch();
       setIsWrite(false);
       setInitVal(editContent);
       return;
@@ -41,16 +38,13 @@ const TodoContent = ({ data }) => {
     if (isWrite) {
       return setIsWrite(!isWrite);
     }
-
     await deleteTodoApi(id);
-    await refetch();
   };
 
   useEffect(() => {
     setEditContent(todo);
     setChecked(isCompleted);
   }, [todo, isCompleted]);
-  // console.error(isWrite);
 
   return (
     <S.TodoBoxBlock>
