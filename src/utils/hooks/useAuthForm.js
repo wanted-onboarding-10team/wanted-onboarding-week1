@@ -12,7 +12,7 @@ function useAuthForm() {
     e => {
       if (email === '') {
         return setError(prev => {
-          const result = { ...prev, email: '아이디를 입력해주세요' };
+          const result = { ...prev, email: '이메일을 입력해주세요' };
           return result;
         });
       }
