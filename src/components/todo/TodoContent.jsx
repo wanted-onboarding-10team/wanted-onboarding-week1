@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { deleteTodoApi, updateTodoApi } from '../../api/todo';
+import React, { useEffect, useRef, useState } from 'react';
+import { deleteTodoApi, getTodosApi, updateTodoApi } from '../../api/todo';
 import * as S from '../../styles/todoStyle';
+import useGetApi from '../../utils/hooks/useGetApi';
 
-const TodoContent = ({ data, refetch }) => {
+const TodoContent = ({ data }) => {
+  const { refetch } = useGetApi(getTodosApi);
+  const { todo, id, isCompleted } = data;
+
   const [isWrite, setIsWrite] = useState(false);
   const [editContent, setEditContent] = useState('');
   const [checked, setChecked] = useState(false);
-  const { todo, id, isCompleted } = data;
+  const [initVal, setInitVal] = useState(todo);
+
+  const inputRef = useRef();
 
   const handleCheck = async value => {
     setChecked(value);
@@ -19,9 +25,15 @@ const TodoContent = ({ data, refetch }) => {
       await updateTodoApi(id, editContent, checked);
       await refetch();
       setIsWrite(false);
+      setInitVal(editContent);
       return;
     }
+    setIsWrite(!isWrite);
+  };
 
+  const onCancel = e => {
+    e.preventDefault();
+    inputRef.current.value = initVal;
     setIsWrite(!isWrite);
   };
 
@@ -38,7 +50,7 @@ const TodoContent = ({ data, refetch }) => {
     setEditContent(todo);
     setChecked(isCompleted);
   }, [todo, isCompleted]);
-  console.error(isWrite);
+  // console.error(isWrite);
 
   return (
     <S.TodoBoxBlock>
@@ -49,7 +61,8 @@ const TodoContent = ({ data, refetch }) => {
           data-testid="modify-input"
           onChange={e => setEditContent(e.target.value)}
           type="text"
-          defaultValue={todo}
+          defaultValue={initVal}
+          ref={inputRef}
           disabled={isWrite ? false : true}
         />
 
@@ -58,7 +71,7 @@ const TodoContent = ({ data, refetch }) => {
             <S.StyledButton data-testid="submit-button" onClick={handleModify}>
               ✅ 확인
             </S.StyledButton>
-            <S.StyledButton data-testid="cancel-button" onClick={handleSubmit}>
+            <S.StyledButton data-testid="cancel-button" onClick={e => onCancel(e)}>
               ↪️ 취소
             </S.StyledButton>
           </>
