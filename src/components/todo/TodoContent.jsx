@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { deleteTodoApi, updateTodoApi } from '../../api/todo';
 import * as S from '../../styles/todoStyle';
 
-const TodoContent = ({ data, refetch }) => {
+const TodoContent = ({ data }) => {
   const { todo, id, isCompleted } = data;
 
   const [isWrite, setIsWrite] = useState(false);
@@ -38,16 +38,13 @@ const TodoContent = ({ data, refetch }) => {
     if (isWrite) {
       return setIsWrite(!isWrite);
     }
-
     await deleteTodoApi(id);
-    await refetch();
   };
 
   useEffect(() => {
     setEditContent(todo);
     setChecked(isCompleted);
   }, [todo, isCompleted]);
-  // console.error(isWrite);
 
   return (
     <S.TodoBoxBlock>
