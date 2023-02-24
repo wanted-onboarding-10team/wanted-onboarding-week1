@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { deleteTodoApi, updateTodoApi } from '../../api/todo';
+import * as S from '../../styles/todoStyle';
 
 const TodoContent = ({ data, refetch }) => {
   const [isWrite, setIsWrite] = useState(false);
@@ -38,37 +38,44 @@ const TodoContent = ({ data, refetch }) => {
     setEditContent(todo);
     setChecked(isCompleted);
   }, [todo, isCompleted]);
+  console.error(isWrite);
 
   return (
-    <Todo>
-      <TodoContainer>
+    <S.TodoBoxBlock>
+      <S.TodoListBlock>
         <input type="checkbox" onChange={e => handleCheck(e.target.checked)} checked={checked} />
-        <div>
-          {isWrite ? (
-            <input
-              data-testid="modify-input"
-              onChange={e => setEditContent(e.target.value)}
-              type="text"
-              defaultValue={todo}
-            />
-          ) : (
-            todo
-          )}
-        </div>
-        <button onClick={handleModify} data-testid="submit-button">
-          {isWrite ? '제출' : '수정'}
-        </button>
-        <button onClick={handleSubmit} data-testid="cancel-button">
-          {isWrite ? '취소' : '삭제'}
-        </button>
-      </TodoContainer>
-    </Todo>
+
+        <input
+          data-testid="modify-input"
+          onChange={e => setEditContent(e.target.value)}
+          type="text"
+          defaultValue={todo}
+          disabled={isWrite ? false : true}
+        />
+
+        {isWrite ? (
+          <>
+            <S.StyledButton data-testid="submit-button" onClick={handleModify}>
+              ✅ 확인
+            </S.StyledButton>
+            <S.StyledButton data-testid="cancel-button" onClick={handleSubmit}>
+              ↪️ 취소
+            </S.StyledButton>
+          </>
+        ) : (
+          <>
+            <S.StyledButton data-testid="modify-button" onClick={handleModify}>
+              ✏️ 수정
+            </S.StyledButton>
+
+            <S.StyledButton data-testid="delete-button" onClick={handleSubmit}>
+              ❌ 삭제
+            </S.StyledButton>
+          </>
+        )}
+      </S.TodoListBlock>
+    </S.TodoBoxBlock>
   );
 };
 
-const Todo = styled.li``;
-const TodoContainer = styled.div`
-  display: flex;
-  gap: 10px;
-`;
 export default TodoContent;

@@ -2,6 +2,17 @@ import palette from './palette';
 import styled from 'styled-components';
 import Button from '../components/common/Button';
 
+export const TodoContainer = styled.div`
+  h3 {
+    margin: 0;
+    color: ${palette.gray[8]};
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-weight: 900;
+    font-size: 28px;
+  }
+`;
+
 export const TodoCreateBoxBlock = styled.div`
   width: 100%;
   margin-bottom: 1rem;
@@ -20,6 +31,7 @@ export const TodoForm = styled.form`
     font-size: 1rem;
     color: ${palette.gray[7]};
   }
+
   button {
     background: ${palette.gray[2]};
     font-weight: 700;
@@ -28,6 +40,7 @@ export const TodoForm = styled.form`
       color: ${palette.gray[9]};
     }
   }
+
   input {
     padding: 0.5rem;
     flex: 1;
