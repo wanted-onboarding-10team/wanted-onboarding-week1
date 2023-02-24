@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { deleteTodoApi, updateTodoApi } from '../../api/todo';
 import * as S from '../../styles/todoStyle';
 
-const TodoContent = ({ data }) => {
+const TodoContent = ({ data, refetch }) => {
   const { todo, id, isCompleted } = data;
 
   const [isWrite, setIsWrite] = useState(false);
@@ -39,6 +39,7 @@ const TodoContent = ({ data }) => {
       return setIsWrite(!isWrite);
     }
     await deleteTodoApi(id);
+    refetch();
   };
 
   useEffect(() => {
