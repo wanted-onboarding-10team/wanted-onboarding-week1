@@ -159,7 +159,7 @@ module.exports = {
      1. 장점 : 서버에 계속해서 todo 데이터를 요청하지 않아도 됨
      2. 단점 : 서버에 적용 여부가 불안하여 신뢰성이 낮아짐.
 
-  → 결정 사항
+  → 결정 사항  
   빈번하게 수정이 이루어질 수 있는 완료 여부 체크박스의 경우 계속해서 서버 요청이 이루어지는 문제점이 있다고 생각하였고, 2번에는 서버 적용이 정확히 되었는지에 대한 신뢰도에 문제점이 있다고 생각하였습니다.
   이를 보완하기 위해 1번의 crud를 할 때마다 get 해오는 방식을 사용하되, 완료 여부만 수정하는 경우 서버에 수정 요청을 보내고 todo list에 대한 요청을 다시 받지 않도록 useGetApi hook을 만들었습니다.
   이 hook을 사용하여 서버에 빈번한 요청 횟수를 줄이고, 데이터의 신뢰도를 높일 수 있도록 하였습니다.
@@ -175,17 +175,19 @@ module.exports = {
 
 - 로그인 페이지와 회원가입 페이지를 props를 통해 구분한 이유
 
-  ![AuthForm](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9cb4ce47-c232-4b0c-bc78-73c0be78c10b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T090855Z&X-Amz-Expires=86400&X-Amz-Signature=104650ccfcc11bc47d5b3431459f87fcd6c8202c85ba29af400f7e658f8b75a7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+    ![AuthForm](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9cb4ce47-c232-4b0c-bc78-73c0be78c10b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T090855Z&X-Amz-Expires=86400&X-Amz-Signature=104650ccfcc11bc47d5b3431459f87fcd6c8202c85ba29af400f7e658f8b75a7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
-  로그인 페이지와 회원가입 페이지 UI가 일치하기 때문에 코드의 중복을 줄이는 것과 재사용성을 위해
-  AuthForm 컴포넌트를 작성하여 페이지에서 호출하도록 하였습니다.
-  🤔 저희 팀원이 같이 고민한 지점
+    로그인 페이지와 회원가입 페이지 UI가 일치하기 때문에 코드의 중복을 줄이는 것과 재사용성을 위해
+    AuthForm 컴포넌트를 작성하여 페이지에서 호출하도록 하였습니다.
 
-  1. react-router-dom의 useMatch로 signin인지 signup인지 판별
-  2. 컴포넌트에 props를 넘겨서 signin인지 signup인지 판별
-     → 결정사항
-     1번의 경우 signin인지 아닌지만 판별할 수 있다는 문제점이 있습니다. 현재 기능상으로는 문제가 없지만,
-     나중에 어떤 기능이 추가되었을 때 바로 반영할 수 있는 2번의 방식으로 채택하였습니다.
+    🤔 저희 팀원이 같이 고민한 지점
+
+    1. react-router-dom의 useMatch로 signin인지 signup인지 판별
+    2. 컴포넌트에 props를 넘겨서 signin인지 signup인지 판별
+    
+    → 결정사항  
+    1번의 경우 signin인지 아닌지만 판별할 수 있다는 문제점이 있습니다. 현재 기능상으로는 문제가 없지만,
+    나중에 어떤 기능이 추가되었을 때 바로 반영할 수 있는 2번의 방식으로 채택하였습니다.
 
 ### 팀원 소개
 
