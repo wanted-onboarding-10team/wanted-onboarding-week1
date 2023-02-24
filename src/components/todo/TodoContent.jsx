@@ -55,20 +55,20 @@ const TodoContent = ({ data, refetch }) => {
 
         {isWrite ? (
           <>
-            <S.StyledButton data-testid="submit-button" name="modify-todo" onClick={handleModify}>
+            <S.StyledButton data-testid="submit-button" onClick={handleModify}>
               ✅ 확인
             </S.StyledButton>
-            <S.StyledButton data-testid="cancel-button" name="modify" onClick={handleSubmit}>
+            <S.StyledButton data-testid="cancel-button" onClick={handleSubmit}>
               ↪️ 취소
             </S.StyledButton>
           </>
         ) : (
           <>
-            <S.StyledButton data-testid="modify-button" name="cancel" onClick={handleModify}>
+            <S.StyledButton data-testid="modify-button" onClick={handleModify}>
               ✏️ 수정
             </S.StyledButton>
 
-            <S.StyledButton data-testid="delete-button" name="delete" onClick={handleSubmit}>
+            <S.StyledButton data-testid="delete-button" onClick={handleSubmit}>
               ❌ 삭제
             </S.StyledButton>
           </>
