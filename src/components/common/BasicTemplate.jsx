@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import palette from '../../styles/palette';
 
 /* 화면 중앙 전체 채우기 */
 const BasicTemplateBlock = styled.div`
@@ -8,7 +7,7 @@ const BasicTemplateBlock = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: ${palette.gray[2]};
+  background: ${({ theme }) => theme.gray[2]};
 
   /*flex로 내부 내용 중앙 정렬*/
   display: flex;
