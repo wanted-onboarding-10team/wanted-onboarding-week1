@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import palette from '../../styles/palette';
 
 const StyledButton = styled.button`
   border: none;
@@ -11,9 +10,9 @@ const StyledButton = styled.button`
   outline: none;
   cursor: pointer;
 
-  background: ${palette.gray[8]};
+  background: ${({ theme }) => theme.gray[8]};
   &:hover {
-    background: ${palette.gray[6]};
+    background: ${({ theme }) => theme.gray[6]};
   }
 
   ${props =>
@@ -27,9 +26,9 @@ const StyledButton = styled.button`
   ${props =>
     props.cyan &&
     css`
-      background: ${palette.cyan[5]};
+      background: ${({ theme }) => theme.cyan[5]};
       &:hover {
-        background: ${palette.cyan[4]};
+        background: ${({ theme }) => theme.cyan[4]};
       }
     `}
 `;

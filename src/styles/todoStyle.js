@@ -1,11 +1,10 @@
-import palette from './palette';
 import styled from 'styled-components';
 import Button from '../components/common/Button';
 
 export const TodoContainer = styled.div`
   h3 {
     margin: 0;
-    color: ${palette.gray[8]};
+    color: ${({ theme }) => theme.gray[8]};
     margin-bottom: 2rem;
     margin-top: 1rem;
     font-weight: 900;
@@ -22,22 +21,22 @@ export const TodoForm = styled.form`
   border-radius: 7px;
   overflow: hidden;
   display: flex;
-  border: 1px solid ${palette.gray[5]};
+  border: 1px solid ${({ theme }) => theme.gray[5]};
 
   input,
   button {
     outline: none;
     border: none;
     font-size: 1rem;
-    color: ${palette.gray[7]};
+    color: ${({ theme }) => theme.gray[7]};
   }
 
   button {
-    background: ${palette.gray[2]};
+    background: ${({ theme }) => theme.gray[2]};
     font-weight: 700;
     &:hover {
-      background: ${palette.gray[3]};
-      color: ${palette.gray[9]};
+      background: ${({ theme }) => theme.gray[3]};
+      color: ${({ theme }) => theme.gray[9]};
     }
   }
 
@@ -45,7 +44,7 @@ export const TodoForm = styled.form`
     padding: 0.5rem;
     flex: 1;
     &:focus {
-      color: ${palette.gray[9]};
+      color: ${({ theme }) => theme.gray[9]};
     }
   }
 `;
@@ -57,8 +56,8 @@ export const TodoBoxBlock = styled.li`
 export const TodoListBlock = styled.label`
   width: 100%;
   padding: 0.5rem 0;
-  border-bottom: 1px solid ${palette.gray[1]};
-  border-top: 1px solid ${palette.gray[1]};
+  border-bottom: 1px solid ${({ theme }) => theme.gray[1]};
+  border-top: 1px solid ${({ theme }) => theme.gray[1]};
   display: flex;
   align-items: center;
 
@@ -69,7 +68,7 @@ export const TodoListBlock = styled.label`
     border: none;
     cursor: pointer;
     &:checked {
-      color: ${palette.gray[9]};
+      color: ${({ theme }) => theme.gray[9]};
     }
   }
 
@@ -84,7 +83,7 @@ export const TodoListBlock = styled.label`
   }
 
   input[type='checkbox']:checked + input[type='text'] {
-    color: ${palette.gray[5]};
+    color: ${({ theme }) => theme.gray[5]};
     text-decoration: line-through;
   }
 `;
@@ -92,20 +91,20 @@ export const TodoListBlock = styled.label`
 export const StyledButton = styled(Button)`
   margin-left: 0.25rem;
   height: 2rem;
-  background: ${palette.gray[2]};
+  background:${({ theme }) => theme.gray[2]};
   font-size: 0.9rem;
   font-weight: 700;
-  color: ${palette.gray[8]};
+  color: ${({ theme }) => theme.gray[8]};
   &:hover {
-    background: ${palette.gray[3]};
+    background: ${({ theme }) => theme.gray[3]};
   }
 `;
 
 export const StyledA = styled.a`
-  color: ${palette.gray[6]};
+  color: ${({ theme }) => theme.gray[6]};
   text-decoration: underline;
   cursor: pointer;
   hover {
-    color: ${palette.gray[9]};
+    color: ${({ theme }) => theme.gray[9]};
   }
 `;

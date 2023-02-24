@@ -1,11 +1,10 @@
 import Button from '../components/common/Button';
-import palette from './palette';
 import styled from 'styled-components';
 
 export const AuthFormBlock = styled.form`
   h3 {
     margin: 0;
-    color: ${palette.gray[8]};
+    color: ${({ theme }) => theme.gray[8]};
     margin-bottom: 2rem;
     margin-top: 1rem;
     font-weight: 900;
@@ -26,13 +25,13 @@ export const AuthFormBlock = styled.form`
 export const StyledInput = styled.input`
   font-size: 1rem;
   border: none;
-  border-bottom: 1px solid ${palette.gray[5]};
+  border-bottom: 1px solid ${({ theme }) => theme.gray[5]};
   padding: 1rem 0 0.5rem;
   outline: none;
   width: 100%;
   &:focus {
     color: $oc-teal-7;
-    border-bottom: 1px solid ${palette.gray[7]};
+    border-bottom: 1px solid ${({ theme }) => theme.gray[7]};
   }
   & + & {
     margin-top: 1rem;
@@ -43,10 +42,10 @@ export const Footer = styled.div`
   margin-top: 2rem;
   text-align: right;
   a {
-    color: ${palette.gray[6]};
+    color: ${({ theme }) => theme.gray[6]};
     text-decoration: underline;
     &:hover {
-      color: ${palette.gray[9]};
+      color: ${({ theme }) => theme.gray[9]};
     }
   }
 `;
