@@ -1,6 +1,6 @@
-## 원티드 프리온보딩 인턴십 1주차 과제
+# 원티드 프리온보딩 인턴십 1주차 과제
 
-### Preview
+# 🌟Preview
 
 <table>
     <tr>
@@ -22,11 +22,13 @@
     
 </table>
 
-### 배포 링크
+# 📝Contents
+
+## 배포 링크
 
 [https://wanted-onboarding-week1.vercel.app](https://wanted-onboarding-week1.vercel.app/signin)
 
-### **프로젝트 실행 방법**
+## **프로젝트 실행 방법**
 
 ```tsx
 $ git clone https://github.com/wanted-onboarding-10team/wanted-onboarding-week1.git
@@ -58,8 +60,9 @@ $ npm start
 │  │   └─ auth (Middleware -> 인가 구현)
 └─ └─ styles (palette, GlobalStyle)
 ```
+# ✅Team Rules
 
-### 커밋 메세지 컨벤션
+## 커밋 메세지 컨벤션
 
 [[GIT] ⚡️ Gitmoji 사용법 정리 (+ 깃모지 툴 소개)](https://inpa.tistory.com/entry/GIT-⚡️-Gitmoji-사용법-Gitmoji-cli)
 
@@ -83,7 +86,7 @@ Gitmoji 사용 이유 → 이모지로 한눈에 어떤 커밋 내용인지 알 
 
 파일 명 : `camel case`, 확장자: `.js`
 
-### Prettier
+## Prettier
 
 ```tsx
 module.exports = {
@@ -93,7 +96,7 @@ module.exports = {
 };
 ```
 
-### EsLint
+## EsLint
 
 ```tsx
 module.exports = {
@@ -109,9 +112,9 @@ module.exports = {
 };
 ```
 
-## Best Practice 채택 과정
+# 🌟Best Practice 채택 과정
 
-- 10조의 소통 방법
+## 10조의 소통 방법
 
   1. 팀 노션 페이지
   2. 디스코드
@@ -119,12 +122,12 @@ module.exports = {
 
   ***
 
-- 인가 절차를 `context API`로 사용한 이유
+## 인가 절차를 `context API`로 사용한 이유
 
   인증된 사용자 여부를 전역적으로 관리하고,
   하위 컴포넌트에서도 로그인 여부 값을 확인할 수 있게 하기 위해 context API를 채택하였습니다.
 
-  🤔 저희 팀원이 같이 고민한 지점
+  **🤔 고민한 지점** <br>
 
   - **HOC (Higher Order Component, 고차컴포넌트)**
   - **Context API**
@@ -141,53 +144,53 @@ module.exports = {
 
   ***
 
-- `api`폴더를 따로 생성한 이유
+## `api`폴더를 따로 생성한 이유
 
   - 사용자 설정 인스턴스 생성
   - 유지보수를 위해 기능별로 api 관리
 
   ***
 
-- todo CRUD를 `useGetApi hooks` 로 사용한 이유
+## todo CRUD를 `useGetApi hooks` 로 사용한 이유
 
-  🤔 저희 팀원이 같이 고민한 지점
+   **🤔 고민한 지점** <br>
 
   1. crud 할때마다 get 해오는 방식
      1. 장점 : 서버에 수정되었는지 여부를 확인 가능
-     2. 단점: 수정 시마다 서버에서 다시 todo data를 요청해오고 있어, 빈번하게 수정이 이루어지는 체크박스의 경우에도 상태가 변경될 때마다 서버 요청이 이루어지고 다시 그려지는 방식
+     2. 단점 : 빈번하게 수정이 이루어 질 수 있는 완료 여부 체크박스를 변경할 때에도, 변경될 때마다 서버에 데이터 요청이 이루어짐
+  
   2. 처음에만 get, 이후 update, delete 요청만 보내고, front 단에서 따로 배열 처리해서 보여주는 방식
      1. 장점 : 서버에 계속해서 todo 데이터를 요청하지 않아도 됨
      2. 단점 : 서버에 적용 여부가 불안하여 신뢰성이 낮아짐.
 
   → 결정 사항  
-  빈번하게 수정이 이루어질 수 있는 완료 여부 체크박스의 경우 계속해서 서버 요청이 이루어지는 문제점이 있다고 생각하였고, 2번에는 서버 적용이 정확히 되었는지에 대한 신뢰도에 문제점이 있다고 생각하였습니다.
-  이를 보완하기 위해 1번의 crud를 할 때마다 get 해오는 방식을 사용하되, 완료 여부만 수정하는 경우 서버에 수정 요청을 보내고 todo list에 대한 요청을 다시 받지 않도록 useGetApi hook을 만들었습니다.
-  이 hook을 사용하여 서버에 빈번한 요청 횟수를 줄이고, 데이터의 신뢰도를 높일 수 있도록 하였습니다.
+  1번의 crud를 할 때마다 get 해오는 방식을 사용하되, 완료 여부만 수정하는 경우 서버에 수정 요청을 보내고 todo list에 대한 요청을 다시 받지 않도록 useGetApi hook을 만들었습니다.
+이 hook을 사용하여 서버에 빈번한 요청 횟수를 줄이고, 데이터의 신뢰도를 높일 수 있도록 하였습니다.
 
   ***
 
-- 유효성 검사를 `useAuthForm hooks`로 사용한 이유
+## 유효성 검사를 `useAuthForm hooks`로 사용한 이유
 
   - 유효성 검사를 hook을 이용해 처리함으로써 기능적인 로직을 분리하고자 하였습니다.
   - 이후 추가적인 유효성 검사 또는 기능적인 확장이 필요할 때 효율적으로 처리할 수 있습니다.
 
   ***
 
-- 로그인 페이지와 회원가입 페이지를 props를 통해 구분한 이유
-
-    ![AuthForm](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9cb4ce47-c232-4b0c-bc78-73c0be78c10b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T090855Z&X-Amz-Expires=86400&X-Amz-Signature=104650ccfcc11bc47d5b3431459f87fcd6c8202c85ba29af400f7e658f8b75a7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
-
-    로그인 페이지와 회원가입 페이지 UI가 일치하기 때문에 코드의 중복을 줄이는 것과 재사용성을 위해
-    AuthForm 컴포넌트를 작성하여 페이지에서 호출하도록 하였습니다.
-
-    🤔 저희 팀원이 같이 고민한 지점
-
-    1. react-router-dom의 useMatch로 signin인지 signup인지 판별
-    2. 컴포넌트에 props를 넘겨서 signin인지 signup인지 판별
+## 로그인 페이지와 회원가입 페이지를 props를 통해 구분한 이유 
     
-    → 결정사항  
-    1번의 경우 signin인지 아닌지만 판별할 수 있다는 문제점이 있습니다. 현재 기능상으로는 문제가 없지만,
-    나중에 어떤 기능이 추가되었을 때 바로 반영할 수 있는 2번의 방식으로 채택하였습니다.
+   ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9cb4ce47-c232-4b0c-bc78-73c0be78c10b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T090855Z&X-Amz-Expires=86400&X-Amz-Signature=104650ccfcc11bc47d5b3431459f87fcd6c8202c85ba29af400f7e658f8b75a7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)   
+    
+   로그인 페이지와 회원가입 페이지 UI가 일치하기 때문에 코드의 중복을 줄이는 것과 재사용성을 위해
+   AuthForm 컴포넌트를 작성하여 페이지에서 호출하도록 하였습니다.
+
+   **🤔 고민한 지점** <br>
+
+   1. react-router-dom의 useMatch로 signin인지 signup인지 판별
+   2. 컴포넌트에 props를 넘겨서 signin인지 signup인지 판별
+    
+   → 결정사항  
+   1번의 경우 signin인지 아닌지만 판별할 수 있다는 문제점이 있습니다. 현재 기능상으로는 문제가 없지만,
+   나중에 어떤 기능이 추가되었을 때 바로 반영할 수 있는 2번의 방식으로 채택하였습니다.
 
 ### 팀원 소개
 
