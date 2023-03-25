@@ -1,34 +1,12 @@
 # 원티드 프리온보딩 인턴십 1주차 과제
 
-# 🌟Preview
+## 📝Contents
 
-<table>
-    <tr>
-        <td>회원가입 페이지</td>
-        <td>로그인 페이지</td>
-        <td>투두 페이지</td>
-    </tr>
-    <tr>
-        <td>
-            <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f4323cac-b905-4490-ad42-44e2ebbcf154/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_1.35.54.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T091409Z&X-Amz-Expires=86400&X-Amz-Signature=7d5645e2a867ccedefb56084cecde7cd19cff818b874e4f81a24cf411ad4da62&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%25202023-02-24%2520%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%25201.35.54.png%22&x-id=GetObject"/>
-        </td>
-        <td>
-            <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ef664f54-e318-4e51-81f6-228362d11c6b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_1.35.43.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T091514Z&X-Amz-Expires=86400&X-Amz-Signature=f1bb123271d628fe4f401da3eae19887189b2a5be08fc67f7d94791a5d20872f&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%25202023-02-24%2520%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%25201.35.43.png%22&x-id=GetObject"/>
-        </td>
-       <td>
-        <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0c3807a4-db07-4707-9979-1f15b24f7137/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_1.35.22.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T091549Z&X-Amz-Expires=86400&X-Amz-Signature=35d5b124e8634d9975372d87779b662e499a6e0d5309b6df6a1b9bf21d4e7c8d&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%25202023-02-24%2520%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%25201.35.22.png%22&x-id=GetObject"/>
-        </td>
-    </tr>
-
-</table>
-
-# 📝Contents
-
-## 배포 링크
+### 배포 링크
 
 [https://wanted-onboarding-week1.vercel.app](https://wanted-onboarding-week1.vercel.app/signin)
 
-## 프로젝트 실행 방법
+### 프로젝트 실행 방법
 
 ```tsx
 $ git clone https://github.com/wanted-onboarding-10team/wanted-onboarding-week1.git
@@ -36,11 +14,11 @@ $ npm i
 $ npm start
 ```
 
-## 사용 기술 스택
+### 사용 기술 스택
 
 ![](https://cdn.discordapp.com/attachments/1077499116839522326/1078606768646668288/2023-02-24_6.17.24.png)
 
-## 파일 구조
+### 파일 구조
 
 ```
 📦
@@ -61,7 +39,7 @@ $ npm start
 └─ └─ styles (palette, GlobalStyle)
 ```
 
-## 기능별 코드 구조
+### 기능별 코드 구조
 
 - **Auth**
 
@@ -116,9 +94,9 @@ $ npm start
 
     관련된 컴포넌트는 TodoContent와 TodoList가 있습니다.
 
-# ✅Team Rules
+## ✅Team Rules
 
-## 커밋 메세지 컨벤션
+### 커밋 메세지 컨벤션
 
 [[GIT] ⚡️ Gitmoji 사용법 정리 (+ 깃모지 툴 소개)](https://inpa.tistory.com/entry/GIT-⚡️-Gitmoji-사용법-Gitmoji-cli)
 
@@ -142,7 +120,7 @@ Gitmoji 사용 이유 → 이모지로 한눈에 어떤 커밋 내용인지 알 
 
 파일 명 : `camel case`, 확장자: `.js`
 
-## Prettier
+### Prettier
 
 ```tsx
 module.exports = {
@@ -152,7 +130,7 @@ module.exports = {
 };
 ```
 
-## EsLint
+### EsLint
 
 ```tsx
 module.exports = {
@@ -168,16 +146,18 @@ module.exports = {
 };
 ```
 
-# 🌟Best Practice 채택 과정
+## 🌟Best Practice 채택 과정
 
-## 10조의 소통 방법
+### 10조의 소통 방법
 
 1. 팀 노션 페이지
 2. 디스코드
 3. 각자 기능 발표 후 기능 별로 의견 조율
 
+-----
 
-## 인가 절차를 `context API`로 사용한 이유
+
+### 인가 절차를 `context API`로 사용한 이유
 
 인증된 사용자 여부를 전역적으로 관리하고,
 하위 컴포넌트에서도 로그인 여부 값을 확인할 수 있게 하기 위해 context API를 채택하였습니다.
@@ -198,13 +178,13 @@ module.exports = {
 팀원들과 이런 토론을 통해 최종적으로 Context API를 인가 관리에 사용하기로 결정하였습니다.
 
 
-## `api`폴더를 따로 생성한 이유
+### `api`폴더를 따로 생성한 이유
 
 - 사용자 설정 인스턴스 생성
 - 유지보수를 위해 기능별로 api 관리
 
 
-## todo CRUD를 `useGetApi hooks` 로 사용한 이유
+### todo CRUD를 `useGetApi hooks` 로 사용한 이유
 
 **🤔 고민한 지점** <br>
 
@@ -222,13 +202,13 @@ module.exports = {
 이 hook을 사용하여 서버에 빈번한 요청 횟수를 줄이고, 데이터의 신뢰도를 높일 수 있도록 하였습니다.
 
 
-## 유효성 검사를 `useAuthForm hooks`로 사용한 이유
+### 유효성 검사를 `useAuthForm hooks`로 사용한 이유
 
 - 유효성 검사를 hook을 이용해 처리함으로써 기능적인 로직을 분리하고자 하였습니다.
 - 이후 추가적인 유효성 검사 또는 기능적인 확장이 필요할 때 효율적으로 처리할 수 있습니다.
 
 
-## 로그인 페이지와 회원가입 페이지를 props를 통해 구분한 이유
+### 로그인 페이지와 회원가입 페이지를 props를 통해 구분한 이유
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9cb4ce47-c232-4b0c-bc78-73c0be78c10b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T090855Z&X-Amz-Expires=86400&X-Amz-Signature=104650ccfcc11bc47d5b3431459f87fcd6c8202c85ba29af400f7e658f8b75a7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
